@@ -397,27 +397,21 @@ def decryption(user_input):
 # user input
 #user_input = input("Enter a string: ")
 
-cypher_text_file = open("cyphertext.txt","r")
-enc_text_file = open("enc_text.txt", "w", encoding="utf-8")
-dec_text_file = open("dec_text.txt", "w", encoding="utf-8")
-input = cypher_text_file.readlines()
-print(input)
-# Encryption
-enc = encryption(''.join(input))
-print(input)
-enc_text_file.write(enc)
+if __name__ == '__main__':
 
-# Decyption
-
-# First we'll convert Final Cipher text into binary 
-#enc_to_binary = str_to_bin(enc)
-
-# we'll call the decryption function 
-dec = decryption(enc)
-dec_text_file.write(dec)
-
-print(enc)
-print(dec)
+    cypher_text_file = open("plaintext.txt","r")
+    enc_text_file = open("enc_text.txt", "w", encoding="utf-8")
+    dec_text_file = open("dec_text.txt", "w", encoding="utf-8")
+    input = cypher_text_file.readlines()
+    
+    enc = encryption(''.join(input))
+    print(input)
+    enc_text_file.write(enc)
 
 
+    dec = decryption(enc)
+    dec_text_file.write(dec)
+
+    print(enc)
+    print(dec)
 
